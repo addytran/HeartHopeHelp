@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.taitran.hearthopehelp.MapsActivity"
+    tools:layout="@layout/activity_maps">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/mReportButton"
+            android:layout_width="68dp"
+            android:layout_height="38dp"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="65dp"
+            android:layout_marginBottom="20dp"
+            android:background="#80BDBDBD"
+            android:layoutDirection="inherit"
+            android:text="Report"
+            android:textColor="#000000"
+            android:textSize="13dp"
+            />
+        <Button
+            android:id="@+id/mAddProfileButton"
+            android:layout_width="100dp"
+            android:layout_height="38dp"
+            android:layout_gravity="left|bottom"
+            android:layout_marginLeft="65dp"
+            android:layout_marginBottom="20dp"
+            android:background="#BDBDBD"
+            android:text="Add Profile"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            />
+        <!--80303F9F - 80 = 50%, 66 = 40%, 4D = 30% transparency-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/mToolbar">
+
+
+
+            <Button
+                android:id="@+id/mTestingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="test"
+                android:background="#BDBDBD"
+                android:textSize="12sp"
+                android:layout_alignParentRight="true"
+                android:padding="5dp"/>
+
+        </RelativeLayout>
+
+
+
+    </fragment>
+
+</RelativeLayout>
+
