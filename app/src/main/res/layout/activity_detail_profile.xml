@@ -7,7 +7,7 @@
     tools:context="com.example.taitran.hearthopehelp.DetailProfileActivity"
     android:orientation="vertical"
     android:weightSum="20"
-    android:background="@color/main_color">
+    android:background="@drawable/hhh_background_blackred">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,6 +36,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="right|bottom"
+
                     android:text="ID:"
                     android:textStyle="bold" />
 
@@ -48,6 +49,7 @@
                     android:paddingLeft="2dp"
                     android:text="######"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -71,26 +73,19 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:orientation="vertical"
-            android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
-                android:layout_weight="1.5"
-                android:weightSum="10">
-
-            </LinearLayout>
+            android:weightSum="10"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="8.5"
                 android:gravity="center"
-                android:padding="3dp"
+                android:padding="4dp"
                 android:orientation="vertical"
                 android:weightSum="8"
-                android:background="#80BDBDBD">>
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edit_text_border">>
 
                 <TextView
                     android:id="@+id/dNameShown"
@@ -98,7 +93,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="2"
                     android:gravity="center|left"
-                    android:text="Name: Testing Purpose"
+                    android:text="Name: Mark Morgan"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -148,7 +143,9 @@
             android:id="@+id/dNavigationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Navigation"
+            android:text="Navigate"
+            android:textStyle="bold"
+            android:background="@drawable/button_border"
             android:textSize="12sp"/>
 
     </LinearLayout>
@@ -162,7 +159,9 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#80BDBDBD"
+            android:background="@drawable/edit_text_border"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:visibility="visible">
 
             <TextView
@@ -171,26 +170,7 @@
                 android:layout_height="match_parent"
                 android:inputType="textMultiLine"
                 android:padding="15dp"
-                android:text="This is a test background stuffs of a homeless individual. This will contain his/her story and stuffs like that. Moreover, it will be multiple lines........................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-...........................................................................
-If scroll all the way down, you will see this message. Great."
+                android:text="Mark Morgan is a veteran who served at Iraq for over two years."
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -201,14 +181,18 @@ If scroll all the way down, you will see this message. Great."
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:gravity="bottom|right">
+        android:gravity="bottom|right"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
 
         <Button
             android:id="@+id/dProfileReportButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Report This Profile"
+            android:text="Report Profile"
             android:textSize="12sp"
+            android:padding="5dp"
+            android:background="@drawable/button_border"
             />
 
     </LinearLayout>

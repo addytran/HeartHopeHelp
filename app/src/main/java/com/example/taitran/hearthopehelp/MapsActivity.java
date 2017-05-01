@@ -7,9 +7,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -56,14 +59,34 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(new Intent(MapsActivity.this, BugReport.class));
             }
         });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.app_menu,menu);
-        
-        return super.onCreateOptionsMenu(menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logoutMenu:
+                //logout is clicked
+                LoginManager.getInstance().logOut();
+                Toast.makeText(MapsActivity.this, "Logout Successful", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MapsActivity.this, MainActivity.class));
+                finish();
+                return true;
+            case R.id.settingsMenu:
+                return true;
+            case R.id.AboutUsMenu:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /**
@@ -79,7 +102,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.getUiSettings().setMapToolbarEnabled(false); //disable navigation and zoom
-        // Add a marker in Sydney and move the camera
+        // Add a marker in Seattle and move the camera
         LatLng spu = new LatLng(47.6496, -122.3617673);
         mMap.addMarker(new MarkerOptions().position(spu).title("Seattle Pacific University"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(spu ,17.0f));

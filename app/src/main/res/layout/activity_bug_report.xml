@@ -8,82 +8,83 @@
     tools:context="com.example.taitran.hearthopehelp.BugReport"
     android:orientation="vertical"
     android:weightSum="20"
-    android:background="@color/main_color">
+    android:background="@drawable/hhh_background_blackred">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="7"
         android:layout_marginLeft="38dp"
-        android:layout_marginRight="38dp">
+        android:layout_marginRight="38dp"
+        android:weightSum="10"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/brpTitleEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:layout_marginTop="15dp"
             android:background="@drawable/edit_text_border"
             android:maxLines="1"
             android:hint="Title"
+            android:padding="10dp"
             android:inputType="text"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/button_border">
+
+            <Spinner
+                android:id="@+id/brpSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_weight="9"
+        android:fillViewport="true"
+        android:isScrollContainer="false">
 
-        <ExpandableListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-
-    <!--Message to admin starts here-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="11">
-
-        <ScrollView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp"
-            android:background="@drawable/edit_text_border">
+            android:id="@+id/brpMessage"
+            android:background="@drawable/edit_text_border"
+            android:hint="Message to Admin"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:gravity="top|left"/>
 
-            <EditText
-                android:id="@+id/brpMessEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Message describing the issue to admin"
-                android:inputType="textMultiLine"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-
-        </ScrollView>
-
-    </LinearLayout>
+    </ScrollView>
 
     <!--layout for two buttons-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="4"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="55dp"
             android:weightSum="3">
 
             <Button
@@ -94,6 +95,7 @@
                 android:text="Cancel"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:background="@drawable/button_border"
                 android:layout_weight="1"
                 />
 
@@ -107,6 +109,7 @@
                 android:text="Submit"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:background="@drawable/button_border"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.taitran.hearthopehelp.add_profile"
     android:orientation="vertical"
-    android:background="@color/main_color"
+    android:background="@drawable/hhh_background_blackred"
     android:weightSum="10">
 
     <!--fill details for new profile-->
@@ -17,7 +17,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_weight="8"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:isScrollContainer="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,6 +40,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edit_text_border"
                 android:hint="Name"
+                android:padding="6dp"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="20sp"
@@ -50,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="8dp"
+                android:padding="6dp"
                 android:background="@drawable/edit_text_border"
                 android:hint="Age..."
                 android:inputType="number"
@@ -59,13 +62,14 @@
             <EditText
                 android:id="@+id/aHometownEditText"
                 android:layout_width="match_parent"
+                android:padding="6dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="8dp"
-
                 android:background="@drawable/edit_text_border"
                 android:hint="Hometown..."
                 android:inputType="text"
+                android:maxLines="1"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -75,6 +79,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="8dp"
+                android:padding="6dp"
+                android:inputType="text"
+                android:maxLines="1"
                 android:background="@drawable/edit_text_border"
                 android:hint="Where usually can be found..."
                 android:textSize="20sp"
@@ -87,7 +94,8 @@
                 android:layout_height="fill_parent"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="8dp"
-                android:layout_gravity="left|top"
+                android:padding="6dp"
+                android:gravity="left|top"
                 android:background="@drawable/edit_text_border"
                 android:hint="Story of the individual"
                 android:textSize="20sp"
@@ -136,12 +144,14 @@ Click here to read more about our policy"
             android:layout_marginBottom="5dp"
             android:text="Cancel"
             android:textSize="15sp"
+            android:background="@drawable/button_border"
             android:textStyle="bold"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
             android:id="@+id/aSubmitButton"
             android:layout_marginLeft="36dp"
             android:layout_marginRight="36dp"
