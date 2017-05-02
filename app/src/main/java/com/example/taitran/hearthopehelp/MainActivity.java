@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onCompleted(JSONObject object, GraphResponse response) {
                                 Log.v("Login Activity", response.toString());
-                               
+
                             }
                         });
                 Bundle parameters = new Bundle();
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 request.setParameters(parameters);
                 request.executeAsync();
 
-                Toast.makeText(MainActivity.this, "Login Success "
+                Toast.makeText(MainActivity.this, "Login Success " + parameters.toString()
                       , Toast.LENGTH_LONG).show();
                 startActivity(new Intent(MainActivity.this, MapsActivity.class));
                 finish();
