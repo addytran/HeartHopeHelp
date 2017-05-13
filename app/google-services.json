@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "365489476713",
+    "firebase_url": "https://hearthopehelp-1490083135882.firebaseio.com",
+    "project_id": "hearthopehelp-1490083135882",
+    "storage_bucket": "hearthopehelp-1490083135882.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365489476713:android:61f2a84c38d65efc",
+        "android_client_info": {
+          "package_name": "com.example.taitran.hearthopehelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "365489476713-48kvfqdmmg51tki5p988qr6j68q925ec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.taitran.hearthopehelp",
+            "certificate_hash": "c59b59577d188123b86c3a83ed8ed16f7cb0fbb9"
+          }
+        },
+        {
+          "client_id": "365489476713-no2u5khhfiftaonm0r63r1t0k9qtmui0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRzFqtl3wBfA8fxbsfE1D3tgtaGnKexDc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "365489476713-no2u5khhfiftaonm0r63r1t0k9qtmui0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

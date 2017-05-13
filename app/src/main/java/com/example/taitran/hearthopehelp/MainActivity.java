@@ -1,10 +1,12 @@
 package com.example.taitran.hearthopehelp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -21,6 +23,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -28,11 +31,16 @@ import com.facebook.login.widget.LoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 
 public class MainActivity extends AppCompatActivity {
 
     LoginButton fbLoginButton;
     CallbackManager callbackManager;
+    public static String userName;
+    public static String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,29 +60,40 @@ public class MainActivity extends AppCompatActivity {
         fbLoginButton = (LoginButton) findViewById(R.id.login_button);
         fbLoginButton.setReadPermissions("public_profile");
         callbackManager = CallbackManager.Factory.create();
+
         fbLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            private ProfileTracker mProfileTracker;
+            Intent i = new Intent(MainActivity.this, MapsActivity.class);
             @Override
             public void onSuccess(LoginResult loginResult) {
-                String userID = loginResult.getAccessToken().getUserId();
-                //request username and picture
-                //String userName = Profile.getCurrentProfile().getName();
-                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
-                            @Override
-                            public void onCompleted(JSONObject object, GraphResponse response) {
-                                Log.v("Login Activity", response.toString());
 
-                            }
-                        });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "name");
-                request.setParameters(parameters);
-                request.executeAsync();
-
-                Toast.makeText(MainActivity.this, "Login Success " + parameters.toString()
-                      , Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MainActivity.this, MapsActivity.class));
+                if(Profile.getCurrentProfile() == null) {
+                    mProfileTracker = new ProfileTracker() {
+                        @Override
+                        protected void onCurrentProfileChanged(Profile profile, Profile profile2) {
+                            // profile2 is the new profile
+                            Log.v("facebook - profile", profile2.getFirstName());
+                            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("userName", profile2.getName());
+                            editor.commit();
+                            mProfileTracker.stopTracking();
+                        }
+                    };
+                    // no need to call startTracking() on mProfileTracker
+                    // because it is called by its constructor, internally.
+                }
+                else {
+                    Profile profile = Profile.getCurrentProfile();
+                    Log.v("facebook - profile", profile.getFirstName());
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("userName", profile.getName());
+                    editor.commit();
+                }
+                startActivity(i);
                 finish();
+
             }
 
             @Override
@@ -84,11 +103,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onError(FacebookException error) {
-                Toast.makeText(MainActivity.this, "Oops, there is something wrong", Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, "Oops, there is something wrong!!", Toast.LENGTH_LONG).show();
+                startActivity(i);
+                finish();
             }
         });
 
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -100,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if(isLoggedIn()){
-            Toast.makeText(MainActivity.this, "Welcome Back :)", Toast.LENGTH_LONG).show();
             startActivity(new Intent(MainActivity.this, MapsActivity.class));
             finish();
         }
